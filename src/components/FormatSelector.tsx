@@ -1,11 +1,16 @@
-const formats = [
-  { from: 'JPG', to: 'PNG' },
-  { from: 'PNG', to: 'JPG' },
-  { from: 'PDF', to: 'JPG' },
-  { from: 'XLSX', to: 'CSV' },
+type Format = 'jpg-png' | 'png-jpg'
+
+interface Props {
+  format: Format
+  setFormat: (f: Format) => void
+}
+
+const formats: { from: string; to: string; value: Format }[] = [
+  { from: 'JPG', to: 'PNG', value: 'jpg-png' },
+  { from: 'PNG', to: 'JPG', value: 'png-jpg' },
 ]
 
-function FormatSelector() {
+function FormatSelector({ format, setFormat }: Props) {
   return (
     <div>
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">
@@ -14,8 +19,13 @@ function FormatSelector() {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {formats.map((f) => (
           <button
-            key={f.from + f.to}
-            className="bg-gray-900 border border-gray-800 rounded-xl py-3 px-4 text-sm hover:border-blue-500 transition-colors"
+            key={f.value}
+            onClick={() => setFormat(f.value)}
+            className={`border rounded-xl py-3 px-4 text-sm transition-colors ${
+              format === f.value
+                ? 'border-blue-500 bg-blue-500/10'
+                : 'border-gray-800 bg-gray-900 hover:border-blue-500'
+            }`}
           >
             <span className="font-bold text-gray-200">{f.from}</span>
             <span className="text-gray-500 mx-2">→</span>
