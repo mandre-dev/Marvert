@@ -1,6 +1,7 @@
 import { convertImageToPng, convertImageToJpg, downloadFile } from '../services/imageConverter'
 import { convertXlsxToCsv, downloadCsv } from '../services/spreadsheetConverter'
-import  type { Format } from '../App'
+import { convertPdfToJpg } from '../services/pdfConverter'
+import type { Format } from '../App'
 
 interface Props {
   format: Format
@@ -38,9 +39,23 @@ function DropZone({ format }: Props) {
         const newName = file.name.replace(/\.xlsx$/i, '.csv')
         downloadCsv(csv, newName)
       }
-    } catch (error) {
-      alert('Erro ao converter o arquivo.')
-    }
+
+      if (format === 'pdf-jpg') {
+        if (!file.type.includes('pdf')) {
+          alert('Selecione um arquivo PDF!')
+          return
+        }
+        const images = await convertPdfToJpg(file)
+        images.forEach((img, index) => {
+          const newName = file.name.replace(/\.pdf$/i, `_page${index + 1}.jpg`)
+          downloadFile(img, newName)
+        })
+      }
+
+      } catch (error) {
+    console.error('Erro na conversão:', error)
+  alert('Erro: ' + error)
+}
   }
 
   function handleClick() {
@@ -49,6 +64,7 @@ function DropZone({ format }: Props) {
     if (format === 'jpg-png') input.accept = '.jpg,.jpeg'
     if (format === 'png-jpg') input.accept = '.png'
     if (format === 'xlsx-csv') input.accept = '.xlsx'
+    if (format === 'pdf-jpg') input.accept = '.pdf'
     input.onchange = (e) => {
       const file = (e.target as HTMLInputElement).files?.[0]
       if (file) handleFile(file)
@@ -66,6 +82,7 @@ function DropZone({ format }: Props) {
     'jpg-png': 'JPG → PNG',
     'png-jpg': 'PNG → JPG',
     'xlsx-csv': 'XLSX → CSV',
+    'pdf-jpg': 'PDF → JPG',
   }
 
   return (

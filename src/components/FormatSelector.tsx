@@ -9,6 +9,7 @@ const formats: { from: string; to: string; value: Format }[] = [
   { from: 'JPG', to: 'PNG', value: 'jpg-png' },
   { from: 'PNG', to: 'JPG', value: 'png-jpg' },
   { from: 'XLSX', to: 'CSV', value: 'xlsx-csv' },
+  { from: 'PDF', to: 'JPG', value: 'pdf-jpg' },
 ]
 
 function FormatSelector({ format, setFormat }: Props) {
