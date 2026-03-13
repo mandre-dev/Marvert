@@ -1,6 +1,6 @@
 import { convertImageToPng, convertImageToJpg, downloadFile } from '../services/imageConverter'
-
-type Format = 'jpg-png' | 'png-jpg'
+import { convertXlsxToCsv, downloadCsv } from '../services/spreadsheetConverter'
+import  type { Format } from '../App'
 
 interface Props {
   format: Format
@@ -28,6 +28,16 @@ function DropZone({ format }: Props) {
         const newName = file.name.replace(/\.png$/i, '.jpg')
         downloadFile(result, newName)
       }
+
+      if (format === 'xlsx-csv') {
+        if (!file.name.endsWith('.xlsx')) {
+          alert('Selecione um arquivo XLSX!')
+          return
+        }
+        const csv = await convertXlsxToCsv(file)
+        const newName = file.name.replace(/\.xlsx$/i, '.csv')
+        downloadCsv(csv, newName)
+      }
     } catch (error) {
       alert('Erro ao converter o arquivo.')
     }
@@ -36,7 +46,9 @@ function DropZone({ format }: Props) {
   function handleClick() {
     const input = document.createElement('input')
     input.type = 'file'
-    input.accept = format === 'jpg-png' ? '.jpg,.jpeg' : '.png'
+    if (format === 'jpg-png') input.accept = '.jpg,.jpeg'
+    if (format === 'png-jpg') input.accept = '.png'
+    if (format === 'xlsx-csv') input.accept = '.xlsx'
     input.onchange = (e) => {
       const file = (e.target as HTMLInputElement).files?.[0]
       if (file) handleFile(file)
@@ -50,7 +62,11 @@ function DropZone({ format }: Props) {
     if (file) handleFile(file)
   }
 
-  const label = format === 'jpg-png' ? 'JPG → PNG' : 'PNG → JPG'
+  const labels: Record<Format, string> = {
+    'jpg-png': 'JPG → PNG',
+    'png-jpg': 'PNG → JPG',
+    'xlsx-csv': 'XLSX → CSV',
+  }
 
   return (
     <div
@@ -66,7 +82,7 @@ function DropZone({ format }: Props) {
       <p className="text-sm text-gray-500">
         ou <span className="text-blue-400">clique para selecionar</span> — até 50MB
       </p>
-      <p className="text-xs text-gray-600 mt-3">Conversão ativa: {label}</p>
+      <p className="text-xs text-gray-600 mt-3">Conversão ativa: {labels[format]}</p>
     </div>
   )
 }

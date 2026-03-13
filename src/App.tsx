@@ -3,7 +3,7 @@ import Header from './components/Header'
 import DropZone from './components/DropZone'
 import FormatSelector from './components/FormatSelector'
 
-type Format = 'jpg-png' | 'png-jpg'
+export type Format = 'jpg-png' | 'png-jpg' | 'xlsx-csv'
 
 function App() {
   const [format, setFormat] = useState<Format>('jpg-png')

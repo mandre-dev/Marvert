@@ -1,4 +1,4 @@
-type Format = 'jpg-png' | 'png-jpg'
+import type { Format } from '../App'
 
 interface Props {
   format: Format
@@ -8,6 +8,7 @@ interface Props {
 const formats: { from: string; to: string; value: Format }[] = [
   { from: 'JPG', to: 'PNG', value: 'jpg-png' },
   { from: 'PNG', to: 'JPG', value: 'png-jpg' },
+  { from: 'XLSX', to: 'CSV', value: 'xlsx-csv' },
 ]
 
 function FormatSelector({ format, setFormat }: Props) {
