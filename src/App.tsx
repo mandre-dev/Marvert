@@ -1,29 +1,22 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import DropZone from './components/DropZone'
-import FormatSelector from './components/FormatSelector'
-import FileList from './components/FileList'
-import type { ConvertedFile } from './components/FileList'
-
-export type Format = 'jpg-png' | 'png-jpg' | 'xlsx-csv' | 'pdf-jpg'
+import Home from './pages/Home'
+import ConverterPage from './pages/ConverterPage'
 
 function App() {
-  const [format, setFormat] = useState<Format>('jpg-png')
-  const [convertedFiles, setConvertedFiles] = useState<ConvertedFile[]>([])
-
-  function addConvertedFile(file: ConvertedFile) {
-    setConvertedFiles((prev) => [file, ...prev])
-  }
-
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <Header />
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <DropZone format={format} onConverted={addConvertedFile} />
-        <FormatSelector format={format} setFormat={setFormat} />
-        <FileList files={convertedFiles} />
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-950 text-white">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pdf-to-jpg" element={<ConverterPage type="pdf-jpg" />} />
+          <Route path="/jpg-to-png" element={<ConverterPage type="jpg-png" />} />
+          <Route path="/png-to-jpg" element={<ConverterPage type="png-jpg" />} />
+          <Route path="/xlsx-to-csv" element={<ConverterPage type="xlsx-csv" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
