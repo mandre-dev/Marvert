@@ -48,8 +48,8 @@ function Home() {
 
       {/* Hero */}
       <div className="text-center mb-14">
-        <div className="inline-block bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
-          100% no navegador · sem upload
+        <div className="inline-block bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-medium px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+          Rápido · Fácil · Seguro 
         </div>
         <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
           Converta seus arquivos<br />

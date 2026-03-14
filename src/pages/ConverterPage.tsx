@@ -96,7 +96,7 @@ function ConverterPage({ type }: Props) {
     <div className="max-w-3xl mx-auto px-4 py-12">
       <button
         onClick={() => navigate('/')}
-        className="text-sm text-gray-500 hover:text-white transition-colors mb-8 flex items-center gap-2"
+        className="text-base text-gray-500 hover:text-white transition-colors mb-8 flex items-center gap-2"
       >
         ← Voltar
       </button>
