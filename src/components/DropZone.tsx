@@ -85,11 +85,13 @@ function DropZone({ format, onConverted }: Props) {
   }
 
   const labels: Record<Format, string> = {
-    'jpg-png': 'JPG → PNG',
-    'png-jpg': 'PNG → JPG',
-    'xlsx-csv': 'XLSX → CSV',
-    'pdf-jpg': 'PDF → JPG',
-  }
+  'jpg-png': 'JPG → PNG',
+  'png-jpg': 'PNG → JPG',
+  'xlsx-csv': 'XLSX → CSV',
+  'pdf-jpg': 'PDF → JPG',
+  'pdf-png': 'PDF → PNG',
+  'docx-txt': 'DOCX → TXT',
+}
 
   return (
     <div
