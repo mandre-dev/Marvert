@@ -11,6 +11,8 @@ import CsvToXlsxPage from './pages/CsvToXlsxPage'
 import XlsxToPdfPage from './pages/XlsxToPdfPage'
 import ImageToPdfPage from './pages/ImageToPdfPage'
 
+export type Format = 'jpg-png' | 'png-jpg' | 'xlsx-csv' | 'pdf-jpg' | 'pdf-png' | 'docx-txt'
+
 function App() {
   return (
     <BrowserRouter>
