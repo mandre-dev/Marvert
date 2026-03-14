@@ -1,9 +1,9 @@
 function Header() {
   return (
-    <header className="border-b border-gray-800 px-6 py-4 flex items-center justify-between">
+    <header className="border-b border-gray-800 px-4 sm:px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <span className="text-2xl">⚡</span>
-        <span className="text-xl font-bold tracking-tight">
+        <span className="text-lg sm:text-xl font-bold tracking-tight">
           Mar<span className="text-blue-500">vert</span>
         </span>
       </div>

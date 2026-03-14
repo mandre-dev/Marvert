@@ -18,7 +18,7 @@ function FormatSelector({ format, setFormat }: Props) {
       <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">
         Escolha a conversão
       </p>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {formats.map((f) => (
           <button
             key={f.value}
