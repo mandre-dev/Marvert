@@ -22,6 +22,8 @@ const categories = [
     label: 'Documentos',
     conversions: [
       { from: 'DOCX', to: 'TXT', route: '/docx-to-txt', description: 'Extraia o texto do seu DOCX', icon: '📝', color: 'text-cyan-400', border: 'hover:border-cyan-500', bg: 'hover:bg-cyan-500/5' },
+      { from: 'TXT', to: 'DOCX', route: '/txt-to-docx', description: 'Converta texto simples para Word', icon: '📝', color: 'text-cyan-300', border: 'hover:border-cyan-300', bg: 'hover:bg-cyan-300/5' },
+      { from: 'DOCX', to: 'PDF', route: '/docx-to-pdf', description: 'Converta Word para PDF', icon: '📄', color: 'text-red-300', border: 'hover:border-red-300', bg: 'hover:bg-red-300/5' },
     ]
   },
   {
