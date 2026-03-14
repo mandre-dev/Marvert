@@ -14,7 +14,7 @@ import ImageToPdfPage from './pages/ImageToPdfPage'
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen text-white" style={{
+     <div className="min-h-screen text-white" style={{
         backgroundColor: '#030712',
         backgroundImage: `
           radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
@@ -23,8 +23,7 @@ function App() {
           linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
           linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px)
         `,
-        backgroundSize: '100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px',
-        animation: 'bgMove 8s ease-in-out infinite alternate'
+        backgroundSize: '100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px'
       }}>
         <Header />
         <Routes>
