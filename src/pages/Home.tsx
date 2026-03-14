@@ -113,7 +113,7 @@ function Home() {
       {/* Footer */}
       <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-xs text-gray-600">
-          Marvert © 2024 · Processamento local no navegador
+          Marvert © 2026 · Processamento local no navegador
         </div>
         <div className="flex gap-2 flex-wrap justify-center">
           {['React', 'TypeScript', 'Vite', 'Tailwind', 'PDF.js', 'SheetJS'].map((tech) => (
