@@ -2,28 +2,27 @@ import { useNavigate } from 'react-router-dom'
 import { convertImageToPng, convertImageToJpg, downloadFile } from '../services/imageConverter'
 import { convertXlsxToCsv, downloadCsv } from '../services/spreadsheetConverter'
 import { convertPdfToJpg } from '../services/pdfConverter'
+import { extractTextFromDocx, downloadTxt } from '../services/docxConverter'
 import { useState } from 'react'
 
-export type ConversionType = 'pdf-jpg' | 'jpg-png' | 'png-jpg' | 'xlsx-csv'
+export type ConversionType = 'pdf-jpg' | 'pdf-png' | 'jpg-png' | 'png-jpg' | 'xlsx-csv' | 'docx-txt'
 
 interface Props {
   type: ConversionType
 }
 
 const config = {
-  'pdf-jpg': { from: 'PDF', to: 'JPG', accept: '.pdf', label: 'PDF → JPG', icon: '📄', color: 'border-red-500' },
-  'jpg-png': { from: 'JPG', to: 'PNG', accept: '.jpg,.jpeg', label: 'JPG → PNG', icon: '🖼️', color: 'border-yellow-500' },
-  'png-jpg': { from: 'PNG', to: 'JPG', accept: '.png', label: 'PNG → JPG', icon: '🖼️', color: 'border-blue-500' },
-  'xlsx-csv': { from: 'XLSX', to: 'CSV', accept: '.xlsx', label: 'XLSX → CSV', icon: '📊', color: 'border-green-500' },
-}
-
-interface ConvertedFile {
-  name: string
+  'pdf-jpg':  { from: 'PDF',  to: 'JPG', accept: '.pdf',       label: 'PDF → JPG',  icon: '📄', color: 'hover:border-red-500' },
+  'pdf-png':  { from: 'PDF',  to: 'PNG', accept: '.pdf',       label: 'PDF → PNG',  icon: '📄', color: 'hover:border-orange-500' },
+  'jpg-png':  { from: 'JPG',  to: 'PNG', accept: '.jpg,.jpeg', label: 'JPG → PNG',  icon: '🖼️', color: 'hover:border-yellow-500' },
+  'png-jpg':  { from: 'PNG',  to: 'JPG', accept: '.png',       label: 'PNG → JPG',  icon: '🖼️', color: 'hover:border-blue-500' },
+  'xlsx-csv': { from: 'XLSX', to: 'CSV', accept: '.xlsx',      label: 'XLSX → CSV', icon: '📊', color: 'hover:border-green-500' },
+  'docx-txt': { from: 'DOCX', to: 'TXT', accept: '.docx',     label: 'DOCX → TXT', icon: '📝', color: 'hover:border-cyan-500' },
 }
 
 function ConverterPage({ type }: Props) {
   const navigate = useNavigate()
-  const [convertedFiles, setConvertedFiles] = useState<ConvertedFile[]>([])
+  const [convertedFiles, setConvertedFiles] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
   const conf = config[type]
 
@@ -34,27 +33,41 @@ function ConverterPage({ type }: Props) {
         const result = await convertImageToPng(file)
         const newName = file.name.replace(/\.(jpg|jpeg)$/i, '.png')
         downloadFile(result, newName)
-        setConvertedFiles((prev) => [{ name: newName }, ...prev])
+        setConvertedFiles((prev) => [newName, ...prev])
       }
       if (type === 'png-jpg') {
         const result = await convertImageToJpg(file)
         const newName = file.name.replace(/\.png$/i, '.jpg')
         downloadFile(result, newName)
-        setConvertedFiles((prev) => [{ name: newName }, ...prev])
+        setConvertedFiles((prev) => [newName, ...prev])
       }
       if (type === 'xlsx-csv') {
         const csv = await convertXlsxToCsv(file)
         const newName = file.name.replace(/\.xlsx$/i, '.csv')
         downloadCsv(csv, newName)
-        setConvertedFiles((prev) => [{ name: newName }, ...prev])
+        setConvertedFiles((prev) => [newName, ...prev])
       }
       if (type === 'pdf-jpg') {
         const images = await convertPdfToJpg(file)
         images.forEach((img, index) => {
           const newName = file.name.replace(/\.pdf$/i, `_page${index + 1}.jpg`)
           downloadFile(img, newName)
-          setConvertedFiles((prev) => [{ name: newName }, ...prev])
+          setConvertedFiles((prev) => [newName, ...prev])
         })
+      }
+      if (type === 'pdf-png') {
+        const images = await convertPdfToJpg(file)
+        images.forEach((img, index) => {
+          const newName = file.name.replace(/\.pdf$/i, `_page${index + 1}.png`)
+          downloadFile(img, newName)
+          setConvertedFiles((prev) => [newName, ...prev])
+        })
+      }
+      if (type === 'docx-txt') {
+        const text = await extractTextFromDocx(file)
+        const newName = file.name.replace(/\.docx$/i, '.txt')
+        downloadTxt(text, newName)
+        setConvertedFiles((prev) => [newName, ...prev])
       }
     } catch (error) {
       alert('Erro ao converter o arquivo.')
@@ -98,7 +111,7 @@ function ConverterPage({ type }: Props) {
         onClick={handleClick}
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
-        className={`border-2 border-dashed border-gray-700 rounded-2xl p-12 text-center cursor-pointer hover:${conf.color} transition-colors mb-6`}
+        className={`border-2 border-dashed border-gray-700 rounded-2xl p-12 text-center cursor-pointer ${conf.color} transition-colors mb-6`}
       >
         {loading ? (
           <div>
@@ -130,7 +143,7 @@ function ConverterPage({ type }: Props) {
                 className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3"
               >
                 <span className="text-green-400">✓</span>
-                <span className="text-sm text-gray-300">{file.name}</span>
+                <span className="text-sm text-gray-300">{file}</span>
               </div>
             ))}
           </div>
