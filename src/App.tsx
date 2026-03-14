@@ -7,6 +7,9 @@ import PdfToDocxPage from './pages/PdfToDocxPage'
 import PdfToXlsxPage from './pages/PdfToXlsxPage'
 import TxtToDocxPage from './pages/TxtToDocxPage'
 import DocxToPdfPage from './pages/DocxToPdfPage'
+import CsvToXlsxPage from './pages/CsvToXlsxPage'
+import XlsxToPdfPage from './pages/XlsxToPdfPage'
+import ImageToPdfPage from './pages/ImageToPdfPage'
 
 function App() {
   return (
@@ -26,6 +29,10 @@ function App() {
           <Route path="/pdf-to-xlsx" element={<PdfToXlsxPage />} />
           <Route path="/txt-to-docx" element={<TxtToDocxPage />} />
           <Route path="/docx-to-pdf" element={<DocxToPdfPage />} />
+          <Route path="/csv-to-xlsx" element={<CsvToXlsxPage />} />
+          <Route path="/xlsx-to-pdf" element={<XlsxToPdfPage />} />
+          <Route path="/jpg-to-pdf" element={<ImageToPdfPage type="jpg-pdf" />} />
+          <Route path="/png-to-pdf" element={<ImageToPdfPage type="png-pdf" />} />
         </Routes>
       </div>
     </BrowserRouter>

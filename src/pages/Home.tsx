@@ -6,6 +6,8 @@ const categories = [
     conversions: [
       { from: 'JPG', to: 'PNG', route: '/jpg-to-png', description: 'Converta JPG para PNG', icon: '🖼️', color: 'text-yellow-400', border: 'hover:border-yellow-500', bg: 'hover:bg-yellow-500/5' },
       { from: 'PNG', to: 'JPG', route: '/png-to-jpg', description: 'Converta PNG para JPG', icon: '🖼️', color: 'text-blue-400', border: 'hover:border-blue-500', bg: 'hover:bg-blue-500/5' },
+      { from: 'JPG', to: 'PDF', route: '/jpg-to-pdf', description: 'Converta imagem JPG para PDF', icon: '🖼️', color: 'text-yellow-300', border: 'hover:border-yellow-300', bg: 'hover:bg-yellow-300/5' },
+      { from: 'PNG', to: 'PDF', route: '/png-to-pdf', description: 'Converta imagem PNG para PDF', icon: '🖼️', color: 'text-blue-300', border: 'hover:border-blue-300', bg: 'hover:bg-blue-300/5' },
     ]
   },
   {
@@ -30,9 +32,11 @@ const categories = [
     label: 'Planilhas',
     conversions: [
       { from: 'XLSX', to: 'CSV', route: '/xlsx-to-csv', description: 'Converta planilhas Excel para CSV', icon: '📊', color: 'text-green-400', border: 'hover:border-green-500', bg: 'hover:bg-green-500/5' },
+      { from: 'CSV', to: 'XLSX', route: '/csv-to-xlsx', description: 'Converta CSV para planilha Excel', icon: '📊', color: 'text-emerald-400', border: 'hover:border-emerald-500', bg: 'hover:bg-emerald-500/5' },
+      { from: 'XLSX', to: 'PDF', route: '/xlsx-to-pdf', description: 'Converta planilha Excel para PDF', icon: '📊', color: 'text-green-300', border: 'hover:border-green-300', bg: 'hover:bg-green-300/5' },
     ]
   },
-]
+] 
 
 const totalTools = categories.reduce((acc, cat) => acc + cat.conversions.length, 0)
 
