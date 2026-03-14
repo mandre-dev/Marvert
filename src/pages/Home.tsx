@@ -14,6 +14,8 @@ const categories = [
       { from: 'PDF', to: 'JPG', route: '/pdf-to-jpg', description: 'Converta páginas do PDF em JPG', icon: '📄', color: 'text-red-400', border: 'hover:border-red-500', bg: 'hover:bg-red-500/5' },
       { from: 'PDF', to: 'PNG', route: '/pdf-to-png', description: 'Converta páginas do PDF em PNG', icon: '📄', color: 'text-orange-400', border: 'hover:border-orange-500', bg: 'hover:bg-orange-500/5' },
       { from: 'Juntar', to: 'PDF', route: '/merge-pdf', description: 'Una vários PDFs em um só', icon: '📎', color: 'text-purple-400', border: 'hover:border-purple-500', bg: 'hover:bg-purple-500/5' },
+      { from: 'PDF', to: 'DOCX', route: '/pdf-to-docx', description: 'Converta PDF para Word', icon: '📝', color: 'text-blue-300', border: 'hover:border-blue-300', bg: 'hover:bg-blue-300/5' },
+      { from: 'PDF', to: 'XLSX', route: '/pdf-to-xlsx', description: 'Converta PDF para Excel', icon: '📊', color: 'text-green-300', border: 'hover:border-green-300', bg: 'hover:bg-green-300/5' },
     ]
   },
   {

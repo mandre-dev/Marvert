@@ -3,6 +3,9 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import ConverterPage from './pages/ConverterPage'
 import MergePdfPage from './pages/MergePdfPage'
+import PdfToDocxPage from './pages/PdfToDocxPage'
+import PdfToXlsxPage from './pages/PdfToXlsxPage'
+
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
           <Route path="/png-to-jpg" element={<ConverterPage type="png-jpg" />} />
           <Route path="/xlsx-to-csv" element={<ConverterPage type="xlsx-csv" />} />
           <Route path="/docx-to-txt" element={<ConverterPage type="docx-txt" />} />
+          <Route path="/pdf-to-docx" element={<PdfToDocxPage />} />
+          <Route path="/pdf-to-xlsx" element={<PdfToXlsxPage />} />
           <Route path="/merge-pdf" element={<MergePdfPage />} />
         </Routes>
       </div>
@@ -25,3 +30,4 @@ function App() {
 }
 
 export default App
+
