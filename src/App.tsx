@@ -10,6 +10,7 @@ import DocxToPdfPage from './pages/DocxToPdfPage'
 import CsvToXlsxPage from './pages/CsvToXlsxPage'
 import XlsxToPdfPage from './pages/XlsxToPdfPage'
 import ImageToPdfPage from './pages/ImageToPdfPage'
+import CompressPdfPage from './pages/CompressPdfPage'
 
 export type Format = 'jpg-png' | 'png-jpg' | 'xlsx-csv' | 'pdf-jpg' | 'pdf-png' | 'docx-txt'
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/xlsx-to-pdf" element={<XlsxToPdfPage />} />
           <Route path="/jpg-to-pdf" element={<ImageToPdfPage type="jpg-pdf" />} />
           <Route path="/png-to-pdf" element={<ImageToPdfPage type="png-pdf" />} />
+          <Route path="/compress-pdf" element={<CompressPdfPage />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -18,6 +18,7 @@ const categories = [
       { from: 'Juntar', to: 'PDF', route: '/merge-pdf', description: 'Una vários PDFs em um só', icon: '📎', color: 'text-purple-400', border: 'hover:border-purple-500', bg: 'hover:bg-purple-500/5' },
       { from: 'PDF', to: 'DOCX', route: '/pdf-to-docx', description: 'Converta PDF para Word', icon: '📝', color: 'text-blue-300', border: 'hover:border-blue-300', bg: 'hover:bg-blue-300/5' },
       { from: 'PDF', to: 'XLSX', route: '/pdf-to-xlsx', description: 'Converta PDF para Excel', icon: '📊', color: 'text-green-300', border: 'hover:border-green-300', bg: 'hover:bg-green-300/5' },
+      { from: 'Comprimir', to: 'PDF', route: '/compress-pdf', description: 'Reduza o tamanho do seu PDF', icon: '🗜️', color: 'text-orange-400', border: 'hover:border-orange-400', bg: 'hover:bg-orange-400/5' },
     ]
   },
   {
