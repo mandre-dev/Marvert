@@ -39,6 +39,7 @@ O **Marvert** é uma aplicação web moderna para conversão de arquivos entre d
 - PDF → DOCX
 - PDF → XLSX
 - Juntar múltiplos PDFs
+- COmprimir PDF
 
 **📝 Documentos**
 - DOCX → TXT
