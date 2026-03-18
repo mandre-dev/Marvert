@@ -37,7 +37,7 @@ const categories = [
       { from: 'XLSX', to: 'PDF', route: '/xlsx-to-pdf', description: 'Converta planilha Excel para PDF', icon: '📊', color: 'text-green-300', border: 'hover:border-green-300', bg: 'hover:bg-green-300/5' },
     ]
   },
-] 
+]
 
 const totalTools = categories.reduce((acc, cat) => acc + cat.conversions.length, 0)
 
@@ -49,8 +49,12 @@ function Home() {
 
       {/* Hero */}
       <div className="text-center mb-14">
-        <div className="inline-block bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-medium px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
-          Rápido · Fácil · Seguro 
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <span className="text-xs text-purple-400">⚡ Rápido</span>
+          <span className="text-gray-700">·</span>
+          <span className="text-xs text-blue-400">✦ Fácil</span>
+          <span className="text-gray-700">·</span>
+          <span className="text-xs text-green-400">🔒 Seguro</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
           Converta seus arquivos<br />
