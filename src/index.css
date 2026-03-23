@@ -16,3 +16,11 @@
     linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Exo 2', sans-serif;
+}
