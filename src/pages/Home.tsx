@@ -28,6 +28,7 @@ const categories = [
       { from: 'TXT', to: 'DOCX', route: '/txt-to-docx', description: 'Converta texto simples para Word', icon: '📝', color: 'text-cyan-300', border: 'hover:border-cyan-300', bg: 'hover:bg-cyan-300/5' },
       { from: 'DOCX', to: 'PDF', route: '/docx-to-pdf', description: 'Converta Word para PDF', icon: '📄', color: 'text-red-300', border: 'hover:border-red-300', bg: 'hover:bg-red-300/5' },
       { from: 'ODT', to: 'DOCX', route: '/odt-to-docx', description: 'Converta documento LibreOffice para Word', icon: '📝', color: 'text-cyan-400', border: 'hover:border-cyan-400', bg: 'hover:bg-cyan-400/5' },
+      { from: 'DOCX', to: 'ODT', route: '/docx-to-odt', description: 'Converta documento Word para LibreOffice', icon: '📝', color: 'text-cyan-300', border: 'hover:border-cyan-300', bg: 'hover:bg-cyan-300/5' },
     ]
   },
   {
