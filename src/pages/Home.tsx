@@ -31,6 +31,7 @@ const categories = [
       { from: 'DOCX', to: 'ODT', route: '/docx-to-odt', description: 'Converta documento Word para LibreOffice', icon: '📝', color: 'text-cyan-300', border: 'hover:border-cyan-300', bg: 'hover:bg-cyan-300/5' },
       { from: 'ODT', to: 'TXT', route: '/odt-to-txt', description: 'Extraia o texto do documento LibreOffice', icon: '📝', color: 'text-cyan-500', border: 'hover:border-cyan-500', bg: 'hover:bg-cyan-500/5' },
       { from: 'TXT', to: 'ODT', route: '/txt-to-odt', description: 'Converta texto simples para LibreOffice', icon: '📝', color: 'text-cyan-400', border: 'hover:border-cyan-400', bg: 'hover:bg-cyan-400/5' },
+      { from: 'ODT', to: 'PDF', route: '/odt-to-pdf', description: 'Converta documento LibreOffice para PDF', icon: '📄', color: 'text-red-400', border: 'hover:border-red-400', bg: 'hover:bg-red-400/5' },
     ]
   },
   {

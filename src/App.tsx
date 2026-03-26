@@ -13,6 +13,7 @@ import OdtToDocxPage from './pages/OdtToDocxPage'
 import DocxToOdtPage from './pages/DocxToOdtPage'
 import OdtToTxtPage from './pages/OdtToTxtPage'
 import TxtToOdtPage from './pages/TxtToOdtPage'
+import OdtToPdfPage from './pages/OdtToPdfPage'
 import XlsxToOdsPage from './pages/XlsxToOdsPage'
 import XlsxToPdfPage from './pages/XlsxToPdfPage'
 import ImageToPdfPage from './pages/ImageToPdfPage'
@@ -52,6 +53,7 @@ function App() {
           <Route path="/docx-to-odt" element={<DocxToOdtPage />} />
           <Route path="/odt-to-txt" element={<OdtToTxtPage />} />
           <Route path="/txt-to-odt" element={<TxtToOdtPage />} />
+          <Route path="/odt-to-pdf" element={<OdtToPdfPage />} />
           <Route path="/csv-to-xlsx" element={<CsvToXlsxPage />} />
           <Route path="/ods-to-xlsx" element={<OdsToXlsxPage />} />
           <Route path="/xlsx-to-ods" element={<XlsxToOdsPage />} />
