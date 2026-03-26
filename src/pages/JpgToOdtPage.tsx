@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { convertOdpToJpg, downloadJpg } from '../services/odpToJpg'
+import { convertJpgToOdt, downloadOdt } from '../services/jpgToOdt'
 
-function OdpToJpgPage() {
+function JpgToOdtPage() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [convertedFiles, setConvertedFiles] = useState<string[]>([])
@@ -10,14 +10,10 @@ function OdpToJpgPage() {
   async function handleFile(file: File) {
     setLoading(true)
     try {
-      const images = await convertOdpToJpg(file)
-      const baseName = file.name.replace(/\.odp$/i, '')
-
-      images.forEach((imgDataUrl, index) => {
-        const newName = `${baseName}_slide${index + 1}.jpg`
-        downloadJpg(imgDataUrl, newName)
-        setConvertedFiles((prev) => [newName, ...prev])
-      })
+      const blob = await convertJpgToOdt(file)
+      const newName = file.name.replace(/\.(jpg|jpeg)$/i, '.odt')
+      downloadOdt(blob, newName)
+      setConvertedFiles((prev) => [newName, ...prev])
     } catch {
       alert('Erro ao converter o arquivo.')
     }
@@ -27,7 +23,7 @@ function OdpToJpgPage() {
   function handleClick() {
     const input = document.createElement('input')
     input.type = 'file'
-    input.accept = '.odp'
+    input.accept = '.jpg,.jpeg'
     input.onchange = (e) => {
       const file = (e.target as HTMLInputElement).files?.[0]
       if (file) handleFile(file)
@@ -47,10 +43,10 @@ function OdpToJpgPage() {
         ← Voltar
       </button>
       <div className="text-center mb-10">
-        <div className="text-5xl mb-4">📊</div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">ODP → JPG</h1>
-        <p className="text-gray-500 text-sm">Converta slides da apresentação em imagens JPG.</p>
-        <p className="text-xs text-yellow-500 mt-2">⚠️ Apenas texto é extraído e convertido em imagem.</p>
+        <div className="text-5xl mb-4">🖼️</div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">JPG → ODT</h1>
+        <p className="text-gray-500 text-sm">Incorpore sua imagem JPG em um documento LibreOffice.</p>
+        <p className="text-xs text-yellow-500 mt-2">⚠️ A imagem será incorporada no documento ODT.</p>
       </div>
       <div
         onClick={handleClick}
@@ -66,7 +62,7 @@ function OdpToJpgPage() {
         ) : (
           <>
             <div className="text-5xl mb-4">📂</div>
-            <p className="text-lg font-semibold text-gray-200 mb-1">Arraste seu ODP aqui</p>
+            <p className="text-lg font-semibold text-gray-200 mb-1">Arraste sua imagem JPG aqui</p>
             <p className="text-sm text-gray-500">ou <span className="text-blue-400">clique para selecionar</span></p>
           </>
         )}
@@ -88,4 +84,4 @@ function OdpToJpgPage() {
   )
 }
 
-export default OdpToJpgPage
+export default JpgToOdtPage

@@ -20,7 +20,7 @@ import XlsxToOdsPage from './pages/XlsxToOdsPage'
 import XlsxToPdfPage from './pages/XlsxToPdfPage'
 import ImageToPdfPage from './pages/ImageToPdfPage'
 import CompressPdfPage from './pages/CompressPdfPage'
-import OdpToJpgPage from './pages/OdpToJpgPage'
+import JpgToOdtPage from './pages/JpgToOdtPage'
 
 export type Format = 'jpg-png' | 'png-jpg' | 'xlsx-csv' | 'pdf-jpg' | 'pdf-png' | 'docx-txt'
 
@@ -66,7 +66,7 @@ function App() {
           <Route path="/jpg-to-pdf" element={<ImageToPdfPage type="jpg-pdf" />} />
           <Route path="/png-to-pdf" element={<ImageToPdfPage type="png-pdf" />} />
           <Route path="/compress-pdf" element={<CompressPdfPage />} />
-          <Route path="/odp-to-jpg" element={<OdpToJpgPage />} />
+          <Route path="/jpg-to-odt" element={<JpgToOdtPage />} />
         </Routes>
       </div>
     </BrowserRouter>

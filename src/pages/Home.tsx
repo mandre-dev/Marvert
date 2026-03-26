@@ -8,7 +8,7 @@ const categories = [
       { from: 'PNG', to: 'JPG', route: '/png-to-jpg', description: 'Converta PNG para JPG', icon: '🖼️', color: 'text-blue-400', border: 'hover:border-blue-500', bg: 'hover:bg-blue-500/5' },
       { from: 'JPG', to: 'PDF', route: '/jpg-to-pdf', description: 'Converta imagem JPG para PDF', icon: '🖼️', color: 'text-yellow-300', border: 'hover:border-yellow-300', bg: 'hover:bg-yellow-300/5' },
       { from: 'PNG', to: 'PDF', route: '/png-to-pdf', description: 'Converta imagem PNG para PDF', icon: '🖼️', color: 'text-blue-300', border: 'hover:border-blue-300', bg: 'hover:bg-blue-300/5' },
-      { from: 'ODP', to: 'JPG', route: '/odp-to-jpg', description: 'Converta slides da apresentação em JPG', icon: '📊', color: 'text-purple-400', border: 'hover:border-purple-500', bg: 'hover:bg-purple-500/5' },
+      { from: 'JPG', to: 'ODT', route: '/jpg-to-odt', description: 'Incorpore imagem JPG em documento LibreOffice', icon: '📝', color: 'text-cyan-400', border: 'hover:border-cyan-500', bg: 'hover:bg-cyan-500/5' },
     ]
   },
   {
