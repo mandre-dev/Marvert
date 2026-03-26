@@ -36,6 +36,7 @@ const categories = [
       { from: 'CSV', to: 'XLSX', route: '/csv-to-xlsx', description: 'Converta CSV para planilha Excel', icon: '📊', color: 'text-emerald-400', border: 'hover:border-emerald-500', bg: 'hover:bg-emerald-500/5' },
       { from: 'XLSX', to: 'PDF', route: '/xlsx-to-pdf', description: 'Converta planilha Excel para PDF', icon: '📊', color: 'text-green-300', border: 'hover:border-green-300', bg: 'hover:bg-green-300/5' },
       { from: 'ODS', to: 'XLSX', route: '/ods-to-xlsx', description: 'Converta planilha LibreOffice para Excel', icon: '📊', color: 'text-indigo-400', border: 'hover:border-indigo-500', bg: 'hover:bg-indigo-500/5' },
+      { from: 'XLSX', to: 'ODS', route: '/xlsx-to-ods', description: 'Converta planilha Excel para LibreOffice', icon: '📊', color: 'text-indigo-300', border: 'hover:border-indigo-300', bg: 'hover:bg-indigo-300/5' },
     ]
   },
 ]
