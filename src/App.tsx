@@ -13,7 +13,7 @@ import OdtToDocxPage from './pages/OdtToDocxPage'
 import DocxToOdtPage from './pages/DocxToOdtPage'
 import OdtToTxtPage from './pages/OdtToTxtPage'
 import TxtToOdtPage from './pages/TxtToOdtPage'
-import OdtToPdfPage from './pages/OdtToPdfPage'
+import PdfToOdtPage from './pages/PdfToOdtPage'
 import XlsxToOdsPage from './pages/XlsxToOdsPage'
 import XlsxToPdfPage from './pages/XlsxToPdfPage'
 import ImageToPdfPage from './pages/ImageToPdfPage'
@@ -46,6 +46,7 @@ function App() {
           <Route path="/docx-to-txt" element={<ConverterPage type="docx-txt" />} />
           <Route path="/merge-pdf" element={<MergePdfPage />} />
           <Route path="/pdf-to-docx" element={<PdfToDocxPage />} />
+          <Route path="/pdf-to-odt" element={<PdfToOdtPage />} />
           <Route path="/pdf-to-xlsx" element={<PdfToXlsxPage />} />
           <Route path="/txt-to-docx" element={<TxtToDocxPage />} />
           <Route path="/docx-to-pdf" element={<DocxToPdfPage />} />
