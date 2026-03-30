@@ -50,6 +50,21 @@ const categories = [
 
 const totalTools = categories.reduce((acc, cat) => acc + cat.conversions.length, 0)
 
+const getCategoryStyle = (label: string) => {
+  switch (label) {
+    case 'Imagens':
+      return { labelClass: 'text-amber-300', countClass: 'text-amber-400' }
+    case 'PDF':
+      return { labelClass: 'text-red-400', countClass: 'text-red-500' }
+    case 'Documentos':
+      return { labelClass: 'text-cyan-300', countClass: 'text-cyan-400' }
+    case 'Planilhas':
+      return { labelClass: 'text-emerald-300', countClass: 'text-emerald-400' }
+    default:
+      return { labelClass: 'text-gray-300', countClass: 'text-gray-500' }
+  }
+}
+
 function Home() {
   const navigate = useNavigate()
 
@@ -94,34 +109,40 @@ function Home() {
 
       {/* Categories */}
       <div className="flex flex-col gap-10">
-        {categories.map((cat) => (
-          <div key={cat.label}>
-            <div className="flex items-center gap-3 mb-4">
-              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
-                {cat.label}
-              </h2>
-              <div className="flex-1 h-px bg-gray-800"></div>
-              <span className="text-xs text-gray-600">{cat.conversions.length} {cat.conversions.length === 1 ? 'ferramenta' : 'ferramentas'}</span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {cat.conversions.map((conv) => (
-                <div
-                  key={conv.route}
-                  onClick={() => navigate(conv.route)}
-                  className={`bg-gray-900 border border-gray-800 rounded-2xl p-6 cursor-pointer transition-all duration-200 ${conv.border} ${conv.bg} hover:scale-105 group`}
-                >
-                  <div className="text-3xl mb-4">{conv.icon}</div>
-                  <div className="mb-2">
-                    <span className={`text-base font-bold ${conv.color}`}>{conv.from}</span>
-                    <span className="text-gray-600 mx-2 text-sm">→</span>
-                    <span className="text-base font-bold text-white">{conv.to}</span>
+        {categories.map((cat) => {
+          const categoryStyle = getCategoryStyle(cat.label)
+
+          return (
+            <div key={cat.label}>
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className={`text-sm sm:text-base font-bold uppercase tracking-wider ${categoryStyle.labelClass}`}>
+                  {cat.label}
+                </h2>
+                <div className="flex-1 h-px bg-gray-800"></div>
+                <span className={`text-sm font-medium ${categoryStyle.countClass}`}>
+                  {cat.conversions.length} {cat.conversions.length === 1 ? 'ferramenta' : 'ferramentas'}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {cat.conversions.map((conv) => (
+                  <div
+                    key={conv.route}
+                    onClick={() => navigate(conv.route)}
+                    className={`bg-gray-900 border border-gray-800 rounded-2xl p-6 cursor-pointer transition-all duration-200 ${conv.border} ${conv.bg} hover:scale-105 group`}
+                  >
+                    <div className="text-3xl mb-4">{conv.icon}</div>
+                    <div className="mb-2">
+                      <span className={`text-lg font-bold ${conv.color}`}>{conv.from}</span>
+                      <span className="text-gray-600 mx-2 text-sm">→</span>
+                      <span className="text-lg font-bold text-white">{conv.to}</span>
+                    </div>
+                    <p className="text-xs text-gray-500 leading-relaxed">{conv.description}</p>
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{conv.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Footer */}
