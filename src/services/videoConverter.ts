@@ -2,7 +2,9 @@
 
 
 export async function convertVideo(file: File, type: 'webm-to-mp4' | 'mp4-to-webm'): Promise<Blob> {
-  const { createFFmpeg, fetchFile } = await import('@ffmpeg/ffmpeg');
+  const ffmpegModule = await import('@ffmpeg/ffmpeg');
+  const createFFmpeg = ffmpegModule.createFFmpeg || ffmpegModule.default.createFFmpeg;
+  const fetchFile = ffmpegModule.fetchFile || ffmpegModule.default.fetchFile;
   const ffmpeg = createFFmpeg({ log: false });
 
   if (!ffmpeg.isLoaded()) {
