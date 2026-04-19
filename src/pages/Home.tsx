@@ -1,6 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 
 const categories = [
+    {
+      label: 'Vídeo',
+      conversions: [
+        { from: 'WEBM', to: 'MP4', route: '/webm-to-mp4', description: 'Converta WEBM para MP4', icon: '🎬', color: 'text-pink-400', border: 'hover:border-pink-500', bg: 'hover:bg-pink-500/5' },
+        { from: 'MP4', to: 'WEBM', route: '/mp4-to-webm', description: 'Converta MP4 para WEBM', icon: '🎬', color: 'text-pink-300', border: 'hover:border-pink-300', bg: 'hover:bg-pink-300/5' },
+      ]
+    },
   {
     label: 'Imagens',
     conversions: [
