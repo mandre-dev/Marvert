@@ -1,4 +1,3 @@
-import React from 'react';
 import VideoConverter from '../components/VideoConverter';
 
 function Mp4ToWebmPage() {
