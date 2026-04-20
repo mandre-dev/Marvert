@@ -1,31 +1,27 @@
-<h1 align="center">
-  <img src="public/logo.png" width="80" height="80" style="border-radius:16px" /><br/>
-  Marvert
-</h1>
 
-<p align="center">
-  Conversor de arquivos web — rápido, gratuito e seus arquivos nunca saem do seu dispositivo.
-</p>
+# Marvert
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
-</p>
+Conversor de arquivos web — rápido, gratuito e agora com backend para conversão de vídeos!
 
-<p align="center">
-  <a href="https://marvert.vercel.app" target="_blank">🌐 Acessar o projeto</a>
-</p>
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind_CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
----
+🌐 [Acessar o projeto](https://marvert.vercel.app)
 
 ## 📌 Sobre o projeto
 
-O **Marvert** é uma aplicação web moderna para conversão de arquivos entre diferentes formatos. Todo o processamento acontece diretamente no navegador, sem enviar dados para servidores externos, garantindo privacidade e velocidade.
+
+O **Marvert** é uma aplicação web moderna para conversão de arquivos entre diferentes formatos.
+
+**Novidade:** Agora conta com um backend Node.js/Express para conversão de vídeos WebM ↔ MP4 usando ffmpeg, garantindo maior compatibilidade e desempenho para vídeos pesados.
+
+Outros arquivos continuam sendo processados no navegador, garantindo privacidade e velocidade.
 
 ## ✅ Funcionalidades
+
 
 **🖼️ Imagens**
 - JPG → PNG
@@ -39,7 +35,7 @@ O **Marvert** é uma aplicação web moderna para conversão de arquivos entre d
 - PDF → DOCX
 - PDF → XLSX
 - Juntar múltiplos PDFs
-- COmprimir PDF
+- Comprimir PDF
 
 **📝 Documentos**
 - DOCX → TXT
@@ -51,13 +47,17 @@ O **Marvert** é uma aplicação web moderna para conversão de arquivos entre d
 - CSV → XLSX
 - XLSX → PDF
 
-## 🚀 Tecnologias
+**🎬 Vídeos**
+- WebM → MP4 (via backend)
+- MP4 → WebM (via backend)
 
 - [React](https://react.dev) — biblioteca de interface
 - [TypeScript](https://www.typescriptlang.org) — tipagem estática
 - [Vite](https://vitejs.dev) — bundler moderno
 - [Tailwind CSS](https://tailwindcss.com) — estilização utilitária
 - [React Router](https://reactrouter.com) — navegação entre páginas
+- [Node.js](https://nodejs.org) + [Express](https://expressjs.com) — backend para conversão de vídeos
+- [ffmpeg](https://ffmpeg.org) — conversão de vídeos no backend
 - [PDF.js](https://mozilla.github.io/pdf.js/) — conversão de PDF no browser
 - [pdf-lib](https://pdf-lib.js.org) — junção de PDFs
 - [SheetJS](https://sheetjs.com) — leitura e exportação de planilhas
@@ -67,53 +67,54 @@ O **Marvert** é uma aplicação web moderna para conversão de arquivos entre d
 - [docx](https://docx.js.org) — geração de documentos Word
 - Canvas API — conversão de imagens nativa do browser
 
+
 ## 🛠️ Como rodar localmente
+
+### 1. Clone o repositório
 ```bash
-# Clone o repositório
 git clone https://github.com/mandre-dev/marvert.git
-
-# Entre na pasta
 cd marvert
-
-# Instale as dependências
-npm install
-
-# Rode o projeto
-npm run dev
 ```
 
-Acesse `http://localhost:5173` no navegador.
+### 2. Instale as dependências do frontend
+```bash
+cd marvert
+npm install
+```
+
+### 3. Instale as dependências do backend
+```bash
+cd ../backend
+npm install
+```
+
+### 4. Inicie o backend (requer ffmpeg instalado no sistema)
+```bash
+npm start
+# O backend estará em http://localhost:3001
+```
+
+### 5. Em outro terminal, inicie o frontend
+```bash
+cd ../marvert
+npm run dev
+# O frontend estará em http://localhost:5173
+```
+
 
 ## 📁 Estrutura do projeto
 ```
-src/
-├── components/
-│   └── Header.tsx
-├── pages/
-│   ├── Home.tsx
-│   ├── ConverterPage.tsx
-│   ├── MergePdfPage.tsx
-│   ├── PdfToDocxPage.tsx
-│   ├── PdfToXlsxPage.tsx
-│   ├── TxtToDocxPage.tsx
-│   ├── DocxToPdfPage.tsx
-│   ├── CsvToXlsxPage.tsx
-│   ├── XlsxToPdfPage.tsx
-│   └── ImageToPdfPage.tsx
-├── services/
-│   ├── imageConverter.ts
-│   ├── spreadsheetConverter.ts
-│   ├── pdfConverter.ts
-│   ├── pdfMerger.ts
-│   ├── docxConverter.ts
-│   ├── pdfToDocx.ts
-│   ├── pdfToXlsx.ts
-│   ├── txtToDocx.ts
-│   ├── docxToPdf.ts
-│   ├── csvToXlsx.ts
-│   ├── xlsxToPdf.ts
-│   └── imageToPdf.ts
-└── App.tsx
+marvert-project/
+├── backend/              # Backend Node.js/Express para conversão de vídeos
+│   ├── index.js
+│   ├── package.json
+│   └── ...
+├── marvert/              # Frontend React (Vite)
+│   ├── src/
+│   ├── package.json
+│   └── ...
+├── README.md             # Este arquivo
+└── ...
 ```
 
 ## 👨‍💻 Autor
