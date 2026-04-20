@@ -3,10 +3,16 @@
 
 Conversor de arquivos web — rápido, gratuito e agora com backend para conversão de vídeos!
 
+
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind_CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![ffmpeg](https://img.shields.io/badge/ffmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)
+![Multer](https://img.shields.io/badge/Multer-FFCA28?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZDQTI4IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMiAyYy0yLjIxIDAtNCAxLjc5LTQgNHYxMmMwIDIuMjEgMS43OSA0IDQgNCAyLjIxIDAgNC0xLjc5IDQtNFY2YzAtMi4yMS0xLjc5LTQtNC00em0wIDJjMS4xMSAwIDIgLjg5IDIgMnYxMmMwIDEuMTEtLjg5IDItMiAyaC0yYy0xLjExIDAtMi0uODktMi0yVjZjMC0xLjExLjg5LTIgMi0yaDJ6Ii8+PC9zdmc+)
+![CORS](https://img.shields.io/badge/CORS-00599C?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 🌐 [Acessar o projeto](https://marvert.vercel.app)
